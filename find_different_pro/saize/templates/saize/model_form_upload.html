@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>サイゼリヤ間違い探し</title>
+
+    <meta charset="UTF-8">
+    <title>Upload</title>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <h1>サイゼリヤ間違い探し</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        img_url:{{input}}
+        <button type="submit">Upload</button>
+
+    </form>
+    <ul>
+        <li><img src="{{obj.document.url}}" width="500"height="500"></li>
+        {% if obj.output %}
+        <li><img src="{{obj.output.url}}" width="500"height="500"></li>
+        {% endif %}
+    </ul>
+    <style>
+        li {
+          list-style: none;
+        }
+      </style>
+</body>
+</html>
